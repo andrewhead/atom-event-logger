@@ -7,12 +7,12 @@ module.exports = plugin =
 
   activate: (state) ->
     # Listen for copy and paste events
-    atom.commands.onWillDispatch (event) =>
+    atom.commands.onDidDispatch (event) =>
 
       editor = atom.workspace.getActiveTextEditor()
       fileName = editor.getPath()
 
       if event.type == "core:copy"
-        log.debug "Copied code'", {fileName, text: atom.clipboard.read()}
+        log.debug "Copied code'" { fileName, text: atom.clipboard.read() }
       else if event.type == "core:paste"
-        log.debug "Pasted code", {fileName, text: atom.clipboard.read()}
+        log.debug "Pasted code", { fileName, text: atom.clipboard.read() }
