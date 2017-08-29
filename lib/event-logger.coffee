@@ -10,7 +10,10 @@ module.exports = plugin =
     atom.commands.onDidDispatch (event) =>
 
       editor = atom.workspace.getActiveTextEditor()
-      fileName = editor.getPath()
+      if editor?
+        fileName = editor.getPath()
+      else
+        fileName = "unknown"
 
       if event.type == "core:copy"
         log.debug "Copied text", { fileName, text: atom.clipboard.read() }
