@@ -13,6 +13,8 @@ module.exports = plugin =
       fileName = editor.getPath()
 
       if event.type == "core:copy"
-        log.debug "Copied code'" { fileName, text: atom.clipboard.read() }
+        log.debug "Copied text", { fileName, text: atom.clipboard.read() }
+      else if event.type == "core:cut"
+        log.debug "Cut text", { fileName, text: atom.clipboard.read() }
       else if event.type == "core:paste"
-        log.debug "Pasted code", { fileName, text: atom.clipboard.read() }
+        log.debug "Pasted text", { fileName, text: atom.clipboard.read() }
