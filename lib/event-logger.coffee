@@ -1,7 +1,6 @@
 # Log all messages to file.  Logs to the default system location.  This lets
 # us combine log messages from several Atom plugins.
-log = require "electron-log"
-log.transports.file.level = "silly"
+log = require "examplify-log"
 
 
 module.exports = plugin =
